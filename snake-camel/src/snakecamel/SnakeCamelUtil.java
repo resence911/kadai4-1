@@ -5,7 +5,7 @@ public class SnakeCamelUtil {
 	public static String snakeToCamelcase(String snake_case) {
 		String[] words = snake_case.split("_");
 		StringBuilder sb = new StringBuilder();
-		for (int i = 0; i < words.length - 1; i++) {
+		for (int i = 0; i < words.length; i++) { //
 			sb.append(capitalize(words[i]));
 		}
 		return new String(sb);
@@ -14,7 +14,7 @@ public class SnakeCamelUtil {
 	public static String camelToSnakecase(String camelcase) {
 		StringBuilder sb = new StringBuilder();
 		int j = 0;
-		for (int i = 0; i < camelcase.length(); i++) {
+		for (int i = 0; i < camelcase.length(); i++) { 
 			char c = camelcase.charAt(i);
 			if (Character.isUpperCase(c)) {
 				sb.append(camelcase.substring(j, i));
@@ -22,7 +22,7 @@ public class SnakeCamelUtil {
 					sb.append("_");
 				}
 				sb.append(Character.toLowerCase(c));
-				j = i;
+				j = i + 1; //
 			}
 		}
 		sb.append(camelcase.substring(j));
